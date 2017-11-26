@@ -9,4 +9,4 @@ echo "copy ../config.prod to $1:$2/config"
 scp -r ../config.prod/* \
 $1:$2/config
 
-ssh $1 "tree $2/config.prod"
+ssh $1 "tree $2/config"
