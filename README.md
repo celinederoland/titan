@@ -16,8 +16,8 @@ The admin has ssh access to production server (there is only one machine).
 
 ### Local usage
  
- - cd /working/path  
  - mkdir /working/path
+ - cd /working/path  
  - mkdir /working/path/code
  
  
@@ -28,7 +28,7 @@ The admin has ssh access to production server (there is only one machine).
  - sudo apt-get install docker.io
  - sudo apt-get install docker-compose
  - sudo adduser you docker
- - (or sh /working/path/docker/docker-clean.sh)
+ - (or sh /working/path/docker/clean-docker.sh)
  
  - add local ssh key into github and bitbucket projects
  
@@ -48,16 +48,16 @@ The admin has ssh access to production server (there is only one machine).
  - check you have no process listening on port 80
 
 
- - cp titan/docker-compose.override.qexample.yml titan/docker-compose.override.yml
+ - cp titan/docker-compose.override.example.yml titan/docker-compose.override.yml
  - ... add confidential and custom datas for local development environment in docker-compose.override.yml
  - mkdir config.dev
  - cp -r config.example/* config.dev
  - ... add confidential and custom datas for local development environment in config files ...
  
  - cd scripts
- - sh install-<projects>.sh
+ - sh install-`projects`.sh
  - sh update-titan.sh
- - sh install-<databases>.sh (the repo is private, you need to replace it with your own repo)
+ - sh install-`databases`.sh (the repo is private, you need to replace it with your own repo)
  
 
 ### Remote usage

@@ -1,6 +1,0 @@
-version: '2'
-
-services:
-  blog:
-    volumes:
-      - /home/celine/ProCeline/workbox/blog:/var/www/html

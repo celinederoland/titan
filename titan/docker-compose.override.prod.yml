@@ -1,6 +1,0 @@
-version: '2'
-
-services:
-  blog:
-    volumes:
-      - /home/ubuntu/datas/workbox/code/blog:/var/www/html
