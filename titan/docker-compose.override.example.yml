@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  ladon:
+    volumes:
+      - /working/path/code/ladon:/code
+
+  pyrausta:
+    volumes:
+      - /working/path/code/ladon:/code
+
+  blog:
+    volumes:
+      - /working/path/code/blog:/var/www/html
+
+  cychreides:
+    volumes:
+      - /working/path/code/cychreides:/var/www/html/public
+
+  demeter:
+    volumes:
+      - /working/path/code/demeter:/var/www/html/public
+
+  redis_counter:
+    ports:
+      - 6379:6379
+
+  sql_dragoon:
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: dragoon
+
+volumes:
+  sql_dragoon_datas:
+    driver: local
+  redis_counter_datas:
+    driver: local
+
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge

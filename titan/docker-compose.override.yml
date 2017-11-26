@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+  ladon:
+    volumes:
+      - /home/celine/ProCeline/develop/07_sandbox/ladon:/code
+
+  pyrausta:
+    volumes:
+      - /home/celine/ProCeline/develop/07_sandbox/ladon:/code
+
+  blog:
+    volumes:
+      - /home/celine/ProCeline/develop/42_projects/blog-html:/var/www/html
+
+  cychreides:
+    volumes:
+      - /home/celine/ProCeline/develop/07_sandbox/cychreides:/var/www/html/public
+
+  demeter:
+    volumes:
+      - /home/celine/ProCeline/develop/07_sandbox/demeter:/var/www/html/public
+
+  redis_counter:
+    ports:
+      - 6379:6379
+
+  sql_dragoon:
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: dragoon
+
+volumes:
+  sql_dragoon_datas:
+    driver: local
+  redis_counter_datas:
+    driver: local
+
+networks:
+  front:
+    driver: bridge
+  back:
+    driver: bridge
