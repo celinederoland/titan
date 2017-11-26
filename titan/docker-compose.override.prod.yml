@@ -1,39 +1,6 @@
 version: '2'
 
 services:
-  ladon:
-    volumes:
-      - /home/ubuntu/datas/develop/ladon:/code
-
-  pyrausta:
-    volumes:
-      - /home/ubuntu/datas/develop/ladon:/code
-
   blog:
     volumes:
-      - /home/ubuntu/datas/develop/blog:/var/www/html
-
-  cychreides:
-    volumes:
-      - /home/ubuntu/datas/develop/cychreides:/var/www/html/public
-
-  demeter:
-    volumes:
-      - /home/ubuntu/datas/develop/demeter:/var/www/html/public
-
-  sql_dragoon:
-    environment:
-      MYSQL_ROOT_PASSWORD: '@712dc27263BDEDragoonDatabase'
-      MYSQL_DATABASE: dragoon
-
-volumes:
-  sql_dragoon_datas:
-    driver: local
-  redis_counter_datas:
-    driver: local
-
-networks:
-  front:
-    driver: bridge
-  back:
-    driver: bridge
+      - /home/ubuntu/datas/workbox/code/blog:/var/www/html
