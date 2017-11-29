@@ -10,6 +10,18 @@ services:
       - front
       - back
 
+  aella:
+    image: tomcat:9-jre8-alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/celine/ProCeline/workbox/code/aella/target/AellaExample.war:/usr/local/tomcat/webapps/ROOT.war
+
+  aella-code:
+    image: maven:3.5.2-jdk-8
+    working_dir: /usr/src/
+    command: mvn package
+
   haproxy:
     image: haproxy:1.7.9-alpine
     volumes:
@@ -20,9 +32,12 @@ services:
       - front
     depends_on:
       - blog
+      - aella
 
 volumes:
   storage:
+    driver: local
+  aella-target:
     driver: local
 
 networks:

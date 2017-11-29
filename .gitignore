@@ -6,3 +6,4 @@ update-remote-params
 config/
 config.prod/
 config.dev/
+*.iml
