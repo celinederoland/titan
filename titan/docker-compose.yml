@@ -12,10 +12,6 @@ services:
 
   aella:
     image: tomcat:9-jre8-alpine
-    ports:
-      - "8080:8080"
-    volumes:
-      - /home/celine/ProCeline/workbox/code/aella/target/AellaExample.war:/usr/local/tomcat/webapps/ROOT.war
     networks:
       - front
       - back
@@ -37,7 +33,16 @@ services:
       - blog
       - aella
 
+  sql_dragoon:
+    image: mysql:5.7
+    volumes:
+      - sql_dragoon_datas:/var/lib/mysql
+    networks:
+      - back
+
 volumes:
+  sql_dragoon_datas:
+    driver: local
   storage:
     driver: local
   aella-target:
