@@ -16,6 +16,9 @@ services:
       - "8080:8080"
     volumes:
       - /home/celine/ProCeline/workbox/code/aella/target/AellaExample.war:/usr/local/tomcat/webapps/ROOT.war
+    networks:
+      - front
+      - back
 
   aella-code:
     image: maven:3.5.2-jdk-8
